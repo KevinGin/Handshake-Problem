@@ -4,20 +4,21 @@ Ten people are in a room, and they are given a task, namely, for each person to 
 
 How many ways could they complete this task?
 
-Or more generally, how many ways could n people shake hands with k different people (hereafter 'n_k')?
+**Or more generally, how many ways could n people shake hands with k different people (hereafter 'n_k')?
 
-(For the sake of clarity, no handshake can be repeated, and no person can shake hands with herself.
-	To illustrate, 4_2 = 3. For people A,B,C,D, here are the 3 combinations:
-		# AB AC BD CD
-		# AB AD BC CD
-		# AC AD BC BD)
-
-The goal is to solve for 10_3.
+To illustrate, 4_2 = 3. For people A,B,C,D, these are the 3 combinations:
+		* AB AC BD CD
+		* AB AD BC CD
+		* AC AD BC BD
+		
+(For the sake of clarity, no handshake can be repeated, and no person can shake hands with herself.)
+	
+The goal is to write a function that will solve for 10_3.
 
 
 ---
 
-BACKSTORY
+**BACKSTORY
 
 This is the combinatorics problem that got me into coding.
 While teaching GRE Quant, a student of mine came up with this question.
@@ -33,7 +34,7 @@ Below I'll descripe how the main function works.
 ---
 
 
-ABSTRACTION: represting people with primes
+**ABSTRACTION: represting people with primes
 
 We start off with an array of n primes (representing people). So when n = 10, we start off like this:
     people = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
@@ -63,7 +64,7 @@ We we know this is a solution, because each of the numbers encodes a handshake (
 
 ---
 
-DYNAMIC APPROACH
+**DYNAMIC APPROACH
 
 I'll use 4_2 to demonstrate the main function. For this problem, we would have:
 	primes = [2,3,5,7]
@@ -109,7 +110,7 @@ Note that this second dynamic approach would save A LOT of time when we increase
 
 ---
 
-ONE FINAL SHORTCUT
+**ONE FINAL SHORTCUT
 
 The main function uses one final "shortcut" to simplify the problem. I'll illustrate again with 10_3.
 
