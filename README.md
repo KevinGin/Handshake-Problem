@@ -99,7 +99,7 @@ This means there is exactly 1 combination where the combination would require ha
 
 Then we'll iterate through the possible handshakes. 44100 is divisible by 6, so we would add the 44100/6 = 7350 key to master:
 	master = {44100: 1,
-			   7350: 1}
+		  7350: 1}
 
 The second key just means there is 1 combination (represented by [6]) where handshakes with a product of 7350 still need to be added.
 
@@ -121,9 +121,9 @@ On the "shortcut", we can then calculate only those solutions where first person
 In other words, we can begin by assuming that any solution would begin like this:
 	solution = [6,10,14, ... ]
 		
-	Note: On the dynamic approach, this would entail dividing our initial target_product by (6*10*14). And our "handshake" 	       array would also shrink (which means fewer iterations!), since we could remove all the other handshakes that involved 	     person 2.
+	Note: On the dynamic approach, this would entail dividing our initial target_product by (6*10*14). And our "handshake" array would also shrink (which means fewer iterations!), since we could remove all the other handshakes that involved person 2.
 	
-	Another note: In the main function, I actully do this shortcut with the largest primes (rather than smallest), just so  	the function can work with smaller numbers.
+	Another note: In the main function, I actully do this shortcut with the largest primes (rather than smallest), just so the function can work with smaller numbers.
 
 Then after getting our initial result, our final solution would just be:
 		initial result * (9 choose 3)
