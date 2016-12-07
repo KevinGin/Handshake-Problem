@@ -4,7 +4,7 @@ Ten people are in a room, and they are given a task, namely, for each person to 
 
 How many ways could they complete this task?
 
-**Or more generally, how many ways could n people shake hands with k different people (hereafter 'n_k')?
+**Or more generally, how many ways could *n* people shake hands with *k* different people (hereafter 'n_k')?**
 
 To illustrate, 4_2 = 3. For people A,B,C,D, these are the 3 combinations:
 		* AB AC BD CD
@@ -18,7 +18,7 @@ The goal is to write a function that will solve for 10_3.
 
 ---
 
-**BACKSTORY
+**BACKSTORY**
 
 This is the combinatorics problem that got me into coding.
 While teaching GRE Quant, a student of mine came up with this question.
@@ -34,7 +34,7 @@ Below I'll descripe how the main function works.
 ---
 
 
-**ABSTRACTION: represting people with primes
+**ABSTRACTION: represting people with primes**
 
 We start off with an array of n primes (representing people). So when n = 10, we start off like this:
     people = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
@@ -46,7 +46,7 @@ For example, a possible solution would look like this:
 The '6' in the solution encodes that 2 and 3 shook hands. And the '10' encodes that 2 and 5 shook hands, etc.
 	(The prime factorization of 6 is 2x3 -- that's why we used primes to represent people).
 
-* IMPORTANT: This gives us an easy way to test whether a series of handshakes is a solution.
+** IMPORTANT:** This gives us an easy way to test whether a series of handshakes is a solution.
 
 When each of 10 people shakes hands with 3 people, there will be 15 handshakes total. 
 So a solution will contain 15 distinct handshake-encoding integers.
@@ -64,7 +64,7 @@ We we know this is a solution, because each of the numbers encodes a handshake (
 
 ---
 
-**DYNAMIC APPROACH
+**DYNAMIC APPROACH**
 
 I'll use 4_2 to demonstrate the main function. For this problem, we would have:
 	primes = [2,3,5,7]
@@ -110,7 +110,7 @@ Note that this second dynamic approach would save A LOT of time when we increase
 
 ---
 
-**ONE FINAL SHORTCUT
+**ONE FINAL SHORTCUT**
 
 The main function uses one final "shortcut" to simplify the problem. I'll illustrate again with 10_3.
 
@@ -121,9 +121,9 @@ On the "shortcut", we can then calculate only those solutions where first person
 In other words, we can begin by assuming that any solution would begin like this:
 	solution = [6,10,14, ... ]
 		
-		Note: On the dynamic approach, this would entail dividing our initial target_product by (6*10*14).
-		And our "handshake" array would also shrink (which means fewer iterations!), since we could remove all the other handshakes that involved person 2.
-		Another note: In the main function, I actully do this shortcut with the largest primes (rather than smallest), just so the function can work with smaller numbers.
+	Note: On the dynamic approach, this would entail dividing our initial target_product by (6*10*14). And our "handshake" 	       array would also shrink (which means fewer iterations!), since we could remove all the other handshakes that involved 	     person 2.
+	
+	Another note: In the main function, I actully do this shortcut with the largest primes (rather than smallest), just so  	the function can work with smaller numbers.
 
 Then after getting our initial result, our final solution would just be:
 		initial result * (9 choose 3)
